@@ -1,8 +1,8 @@
-import stemgraphic
-import numpy
+import pandas as pd
+from stemgraphic import stem_graphic
 
-numbers = [11,12,2,10,3,22,33,45]
+filename = "Data/StemAndLeaf1.txt"
 
-stemgraphic.stem_graphic(numbers, scale=2)
+df = open(filename, "r")
 
-print(numpy.median(numbers))
+stem_graphic(df['40'], scale=5);
