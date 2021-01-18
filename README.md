@@ -6,6 +6,6 @@ Data - Contains three text file data
 <br/>
 task.py - Implements the stem-leaf diagram from a selected textfile
 <br/>
-Untitled.ipynb - a third party library that can be used instead 
+Untitled.ipynb - a third party library that can be used to 
                  draw a stem-leaf diagram
 <br/>
