@@ -113,10 +113,20 @@ def drawStem(selectedNo):
     for i in range(0, len(lineList)):
         x = int(lineList[i].strip())
         y = str(x)
-        if myDict[y[0:-1]].isNull:
-            myDict[y[0:-1]] = y[-1]
+        if y[0:-1] in myDict:
+            z = myDict[y[0:-1]]
+            z.append(y[-1])
+            myDict[y[0:-1]] = z
+        else:
+            myList = []
+            myList.append(y[-1])
+            myDict[y[0:-1]] = myList
+    for key in myDict:
+        print(key + "|", end = '')
+        for key2 in myDict[key]:
+            print(key2, end = '')
+        print()
 
-    print(myDict)
 
 def exiting():
     """
