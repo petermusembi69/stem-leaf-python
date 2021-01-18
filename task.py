@@ -1,15 +1,34 @@
 #!/usr/bin/python3
 # task.py
-import stemgraphic
-import numpy
 
-# function is used to greet the user
 def printIntro():
+    """
+    -------------------
+    printIntro() METHOD
+    -------------------
+    
+    function greets the user
+    """
     print('Greetings there')
 
-
-# function is used to prompt the user for input
 def getInput():
+    """
+    -----------------
+    getInput() METHOD
+    -----------------
+
+    function prompt the user to
+    enter a value
+
+    calls
+    -----  
+    generateSteamLeaf(arg_1)
+        generates the stem leaf diagram
+    
+    exiting()
+        exits the program
+
+    """
     while True:
         try:
             choice = int(input(
@@ -24,43 +43,124 @@ def getInput():
         else:
             print("invalid input")
 
-
 # function is used to generate a stem leaf diagram
 def generateStemLeaf(selectedNo):
+    """
+    ------------------------
+    generateStemLeaf() METHOD
+    ------------------------
+    
+    function draws stem leaf diagram
+    and prompt the user to enter
+    another value
+
+    Parameters
+    ----------
+    arg_1 : int
+    contains the selected value
+
+    calls
+    ----- 
+    drawStemLeaf(arg_1)
+        to generate the stem
+        leaf diagram
+    
+    getInput()
+        to prompt the user to
+        enter a value
+
+    """
     print("Your input is: {}".format(selectedNo))
     print("Generating the stem-Leaf Diagram ...")
-    numbers = [11,12,2,10,3,22,33,45]
-    stemgraphic.stem_graphic(numbers, scale=2)
-    print(numpy.median(numbers))
+    drawStem(selectedNo)
     getInput()
 
-# function exits the loop
+def drawStem(selectedNo):
+    """
+    ------------------
+    drawStem() METHOD
+    ------------------
+
+    function reads the appropriate
+    file inputs and draws the
+    stem-leaf diagram
+
+    Parameters
+    ----------
+    arg_1 : int
+    contains the selected value
+
+    calls
+    ----- 
+    generateSteamLeaf(arg_1)
+        generates the stem leaf diagram
+    
+    exiting()
+        exits the program
+    """
+    filename1 = "F:/stem-leaf-python/Data/StemAndLeaf1.txt"
+    filename2 = "F:/stem-leaf-python/Data/StemAndLeaf2.txt"
+    filename3 = "F:/stem-leaf-python/Data/StemAndLeaf3.txt"
+    if selectedNo == 1:
+        inFile = open(filename1, "r")
+    elif selectedNo == 2:
+        inFile = open(filename2, "r")
+    else:
+        inFile = open(filename3, "r")
+    lineList = inFile.readlines()
+    inFile.close()
+    myDict = {}
+    for i in range(0, len(lineList)):
+        x = int(lineList[i].strip())
+        y = str(x)
+        if myDict[y[0:-1]].isNull:
+            myDict[y[0:-1]] = y[-1]
+
+    print(myDict)
+
 def exiting():
+    """
+    ----------------
+    exiting() METHOD
+    ----------------
+
+    function exits the loop
+    and  prints Exiting ...
+    the terminal
+    """
     print('Exiting ...')
     exit()
 
+
+def printDocString():
+    """
+    -----------------------
+    printDocString() METHOD
+    -----------------------
+
+    function prints the doc
+    """
+    print(printIntro.__doc__)
+    print(getInput.__doc__)
+    print(generateStemLeaf.__doc__)
+    print(drawStem.__doc__)
+    print(exiting.__doc__)
+
+
 def main():
+    """
+    -------------
+    main() METHOD
+    -------------
+
+    functions calls the required
+    methods in order of execution
+    """
+    printDocString()
     printIntro()
     getInput()
+    
 
 if __name__ == "__main__":
     main()
 
-
-#     # read the appropriate datafile & display a stem-and-leaf plot
-#     filename1 = "C:/directory/StemAndLeaf1.txt"
-#     filename2 = "C:/directory/StemAndLeaf2.txt"
-#     filename3 = "C:/directory/StemAndLeaf3.txt"
-#     if selectedNo == 1:
-#         infile = open(filename, "r")
-#         lineList = infile.readlines()
-#         infile.close()
-#         for i in range(0, len(lineList)):
-#             x = int(lineList[i].strip())
-#             print(x)
-# # iteration getInput(a)
-
-
-# printIntro()
-# getInput()
-# # generateStemLeaf()
