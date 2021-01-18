@@ -1,5 +1,10 @@
 #!/usr/bin/python3
 # task.py
+# 
+# Name : 
+# Date : 
+# Video Link : 
+# I have not given or received any unathorised assitance in this assignment.
 
 def printIntro():
     """
@@ -32,7 +37,7 @@ def getInput():
     while True:
         try:
             choice = int(input(
-                "\nEnter either 1,2,3 or 4 \n[1]Genereate Stem and Leaf \n[2]Genereate Stem and Leaf \n[3]Genereate Stem and Leaf \n[4]Exit \n"))
+                "\nEnter either 1,2,3 or 4 \n[1]Generate Stem and Leaf \n[2]Generate Stem and Leaf \n[3]Generate Stem and Leaf \n[4]Exit \n"))
         except ValueError:
             print("Invalid Input")
             continue
@@ -98,9 +103,9 @@ def drawStem(selectedNo):
     exiting()
         exits the program
     """
-    filename1 = "F:/stem-leaf-python/Data/StemAndLeaf1.txt"
-    filename2 = "F:/stem-leaf-python/Data/StemAndLeaf2.txt"
-    filename3 = "F:/stem-leaf-python/Data/StemAndLeaf3.txt"
+    filename1 = "Data/StemAndLeaf1.txt"
+    filename2 = "Data/StemAndLeaf2.txt"
+    filename3 = "Data/StemAndLeaf3.txt"
     if selectedNo == 1:
         inFile = open(filename1, "r")
     elif selectedNo == 2:
