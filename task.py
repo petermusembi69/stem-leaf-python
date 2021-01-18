@@ -20,7 +20,7 @@ def getInput():
             # print("Your input is: {}".format(choice))
             generateStemLeaf(choice)
         elif choice == 4:
-            print("Exiting")
+            leaving()
         else:
             print("invalid input")
 
@@ -29,6 +29,11 @@ def generateStemLeaf(selectedNo):
     print(selectedNo)
     print('Generate the leaf stem here')
     getInput()
+
+# function exits the loop
+def leaving():
+    print('Exiting')
+    exit()
 
 printIntro()
 getInput()
