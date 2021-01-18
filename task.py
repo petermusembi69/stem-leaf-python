@@ -1,12 +1,14 @@
 #!/usr/bin/python3
 # task.py
+import stemgraphic
+import numpy
 
-
+# function is used to greet the user
 def printIntro():
-    # greet user
     print('Greetings there')
 
 
+# function is used to prompt the user for input
 def getInput():
     while True:
         try:
@@ -15,28 +17,36 @@ def getInput():
         except ValueError:
             print("Invalid Input")
             continue
-
         if 1 <= choice <= 3:
-            # print("Your input is: {}".format(choice))
             generateStemLeaf(choice)
         elif choice == 4:
-            leaving()
+            exiting()
         else:
             print("invalid input")
 
 
+# function is used to generate a stem leaf diagram
 def generateStemLeaf(selectedNo):
-    print(selectedNo)
-    print('Generate the leaf stem here')
+    print("Your input is: {}".format(selectedNo))
+    print("Generating the stem-Leaf Diagram ...")
+    numbers = [11,12,2,10,3,22,33,45]
+    stemgraphic.stem_graphic(numbers, scale=2)
+    print(numpy.median(numbers))
     getInput()
 
 # function exits the loop
-def leaving():
-    print('Exiting')
+def exiting():
+    print('Exiting ...')
     exit()
 
-printIntro()
-getInput()
+def main():
+    printIntro()
+    getInput()
+
+if __name__ == "__main__":
+    main()
+
+
 #     # read the appropriate datafile & display a stem-and-leaf plot
 #     filename1 = "C:/directory/StemAndLeaf1.txt"
 #     filename2 = "C:/directory/StemAndLeaf2.txt"
