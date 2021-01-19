@@ -1,10 +1,6 @@
 #!/usr/bin/python3
 # task.py
 # 
-# Name : 
-# Date : 
-# Video Link : 
-# I have not given or received any unathorised assitance in this assignment.
 
 def printIntro():
     """
